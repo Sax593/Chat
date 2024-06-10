@@ -1,0 +1,16 @@
+// backend/prisma/schema.prisma
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  content   String
+  sender    String
+  createdAt DateTime @default(now())
+}
